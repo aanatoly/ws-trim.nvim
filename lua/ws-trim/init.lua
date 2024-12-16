@@ -2,8 +2,10 @@ local M = {}
 
 --- @class VenvOptions
 local defaults = {
+    conform_fts = { "_" },
     install_conform_fallback = true,
     max_blank_lines = 2,
+    hl_group = { link = "Error" },
 }
 
 M.options = {}
@@ -81,14 +83,7 @@ M.setup = function(options)
         end,
     })
 
-    vim.api.nvim_set_hl(0, "ExtraWhitespace", {
-        bg = "red",
-        ctermbg = "red",
-    })
-    vim.api.nvim_set_hl(0, "Clear", {
-        fg = "yellow",
-        ctermfg = "yellow",
-    })
+    vim.api.nvim_set_hl(0, "ExtraWhitespace", M.options.hl_group)
 end
 
 return M
