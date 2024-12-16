@@ -1,16 +1,25 @@
-# ws-trim.nvim
+# `ws-trim.nvim`
 
-neovim plugin that highlights trailing whitespaces and
-removes them via [conform][conform]
 
-Highlights:
+![Version](https://img.shields.io/github/v/tag/aanatoly/ws-trim.nvim.png)
+![License](https://img.shields.io/github/license/aanatoly/ws-trim.nvim.png)
+[![Neovim](https://img.shields.io/badge/NeoVim-0.10-blue.png?logo=neovim)][neovim]
+![Contributions](https://img.shields.io/badge/Contributions-Welcome-brightgreen.png)
 
-- spaces at the end of the line
-- blank lines at the end of the file
-- too many consequitive blank lines, 2+
+[Neovim][neovim] plugin for highlighting and trimming unnecessary whitespace.
+It integrates with [conform][conform] to provide actual formatting.
 
-Trimming:
-- it configures [conform][conform] to trim white spaces, if no formatters defined
+**Features:**
+
+- Highlights whitespace in all normal buffers, including `gitcommit` buffers.
+- Highlights the following types of whitespace issues:
+  - Trailing spaces at the end of a line.
+  - Trailing blank lines at the end of the file.
+  - Leading blank lines at the start of the file.
+  - Excessive blank lines (3+ consecutive blank lines).
+- Whitespace trimming (formatting) for specific file types:
+  - Uses [conform][conform], ensuring integration with your existing formatter setup.
+  - Supports running as a fallback or as a post-formatter after other configured formatters.
 
 ## Installation
 
@@ -18,10 +27,49 @@ Installation with `lazy`
 
 ```lua
 {
-    "aanatoly/whitespaces-nvim",
-    cmd = { "Venv", "VenvInfo" },
-    opts = { search_path = { "~/.venvs", "." } }
+    "aanatoly/ws-trim.nvim",
+    event = { "FileType" },
+    opts = {}
 }
 ```
 
-[conform]: https://github.com/aanatoly/venv.nvim.git
+## Configuration
+
+The default configuration is
+
+```lua
+opts = {
+    -- file types to format (e.g. trim whitespace)
+    -- See https://github.com/stevearc/conform.nvim#options
+    -- {"_"} - file types without a specific formatter
+    -- {"*"} - all file types (runs last)
+    -- {"c", "sh"} - specific file types (runs last)
+    -- {} - do not format, only highlight
+    conform_fts = { "_" },
+
+    -- tbd
+    install_conform_fallback = true,
+
+    -- maximum number of blank lines allowed (excess lines are removed)
+    max_blank_lines = 2,
+
+    -- highlight group for trailing white spaces
+    -- see `h: nvim_set_hl` for details
+    -- { link = "Error" } - link to Error hl_group
+    -- { bg = "red" } - red background
+    hl_group = { link = "Error" },
+}
+```
+
+Example usage
+
+```lua
+require("ws-trim").setup {
+    max_blank_lines = 1,
+    hl_group = { bg = "yellow" },
+}
+```
+
+[neovim]: https://neovim.io/
+[conform]: https://github.com/stevearc/conform.nvim/
+[conform-opts]: https://github.com/stevearc/conform.nvim#options
