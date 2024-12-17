@@ -60,7 +60,7 @@ opts = {
 Example usage
 
 ```lua
-require("ws-trim").setup {
+opts = {
     max_blank_lines = 1,
     hl_group = { bg = "yellow" },
 }
