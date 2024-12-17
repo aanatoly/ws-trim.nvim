@@ -27,6 +27,7 @@ Installation with `lazy`
 ```lua
 {
     "aanatoly/ws-trim.nvim",
+    dependencies = { "stevearc/conform.nvim" },
     event = { "FileType" },
     opts = {}
 }
