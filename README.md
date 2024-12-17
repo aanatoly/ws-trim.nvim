@@ -1,7 +1,6 @@
 # `ws-trim.nvim`
 
-
-[![Version](https://img.shields.io/github/release/aanatoly/ws-trim.nvim.png)](https://github.com/aanatoly/ws-trim.nvim/releases)
+[![Version](https://img.shields.io/github/tag/aanatoly/ws-trim.nvim.png)](https://github.com/aanatoly/ws-trim.nvim/releases)
 [![Licence](https://img.shields.io/github/license/aanatoly/ws-trim.nvim.png)](./LICENSE)
 [![Neovim](https://img.shields.io/badge/NeoVim-0.10-blue.png?logo=neovim)][neovim]
 ![Contributions](https://img.shields.io/badge/Contributions-Welcome-brightgreen.png)
@@ -46,9 +45,6 @@ opts = {
     -- {"c", "sh"} - specific file types (runs last)
     -- {} - do not format, only highlight
     conform_fts = { "_" },
-
-    -- tbd
-    install_conform_fallback = true,
 
     -- maximum number of blank lines allowed (excess lines are removed)
     max_blank_lines = 2,
