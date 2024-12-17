@@ -1,0 +1,14 @@
+{
+  "template": "https://github.com/aanatoly/cookiecutter-linters",
+  "commit": "0753d11be82154232bf188a79fcbbbdb5136fc48",
+  "checkout": "0753d11",
+  "context": {
+    "cookiecutter": {
+      "max_line_length": "120",
+      "project_name": "foo",
+      "lua": "yes",
+      "_template": "https://github.com/aanatoly/cookiecutter-linters"
+    }
+  },
+  "directory": null
+}
