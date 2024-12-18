@@ -67,6 +67,14 @@ opts = {
 }
 ```
 
+## Creadits
+
+Big thanks to these awesome projects for ideas and inspiration:
+
+- [conform][conform] - Lightweight yet powerful formatter plugin for Neovim
+- [trim][trim] - This plugin trims trailing whitespace and lines.
+
 [neovim]: https://neovim.io/
 [conform]: https://github.com/stevearc/conform.nvim/
 [conform-opts]: https://github.com/stevearc/conform.nvim#options
+[trim]: https://github.com/cappyzawa/trim.nvim
